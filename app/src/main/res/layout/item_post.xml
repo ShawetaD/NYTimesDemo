@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.app.nytimes.data.Feed" />
+
+        <variable
+            name="imageUrl"
+            type="String" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/card_horizontal_margin"
+        android:layout_marginTop="@dimen/card_margin_top"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="@dimen/card_elevation"
+        app:contentPadding="@dimen/card_content_padding"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/feed_image_view"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="8dp"
+                android:src="@mipmap/ic_launcher"
+                bind:imageUrl="@{imageUrl}" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/title_textview"
+                style="@style/Widget.NYTimes.TextView.Title"
+                android:layout_width="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_toEndOf="@+id/feed_image_view"
+                android:gravity="start"
+                android:minHeight="50dp"
+                android:text="@{item.title}" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/title_textview"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/Widget.NYTimes.TextView.Body"
+                    android:text="@{@string/by_author(item.byline)}" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/Widget.NYTimes.TextView.Body"
+                    android:layout_marginTop="5dp"
+                    android:drawableStart="@drawable/ic_date"
+                    android:drawablePadding="5dp"
+                    android:text="@{item.publishedDate}" />
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/arrow_right"
+                android:layout_width="30dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                app:srcCompat="@drawable/ic_right" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
