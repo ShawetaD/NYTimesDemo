@@ -2,6 +2,8 @@
 This is a demo application for showing New York Times most popular articles from the NY Times Developer APIs https://developer.nytimes.com/get-started.
 
 # Getting Started
+Follow the NYTime Developer guide to get the Api Key
+https://developer.nytimes.com/get-started
 
 # Built With 🛠🛠🛠
 - Kotlin - First class and official programming language for Android development.
